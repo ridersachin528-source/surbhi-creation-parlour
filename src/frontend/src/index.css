@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Lato:wght@300;400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+    /* Warm cream background: #F5EDE0 -> oklch(0.924 0.026 74) */
+    --background: 0.924 0.026 74;
+    /* Deep brown text: #3A2A27 -> oklch(0.28 0.04 35) */
+    --foreground: 0.28 0.04 35;
+    /* Card off-white: #FFF7EE -> oklch(0.975 0.02 80) */
+    --card: 0.975 0.02 80;
+    --card-foreground: 0.28 0.04 35;
+    --popover: 0.975 0.02 80;
+    --popover-foreground: 0.28 0.04 35;
+    /* Gold primary: #C8A24A -> oklch(0.72 0.12 75) */
+    --primary: 0.72 0.12 75;
+    --primary-foreground: 0.975 0.02 80;
+    /* Pale beige secondary: #E9DDCF -> oklch(0.9 0.024 72) */
+    --secondary: 0.9 0.024 72;
+    --secondary-foreground: 0.28 0.04 35;
+    --muted: 0.9 0.024 72;
+    /* Warm gray-brown muted: #7B6B62 -> oklch(0.52 0.03 48) */
+    --muted-foreground: 0.52 0.03 48;
+    --accent: 0.72 0.12 75;
+    --accent-foreground: 0.975 0.02 80;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.88 0.024 72;
+    --input: 0.88 0.024 72;
+    --ring: 0.72 0.12 75;
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.975 0.02 80;
+    --sidebar-foreground: 0.28 0.04 35;
+    --sidebar-primary: 0.72 0.12 75;
+    --sidebar-primary-foreground: 0.975 0.02 80;
+    --sidebar-accent: 0.9 0.024 72;
+    --sidebar-accent-foreground: 0.28 0.04 35;
+    --sidebar-border: 0.88 0.024 72;
+    --sidebar-ring: 0.72 0.12 75;
+  }
+
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Lato", sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-playfair {
+    font-family: "Playfair Display", serif;
+  }
+
+  .font-lato {
+    font-family: "Lato", sans-serif;
+  }
+
+  .gold-sheen {
+    position: relative;
+    overflow: hidden;
+  }
+  .gold-sheen::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent
+    );
+    transition: left 0.5s ease;
+  }
+  .gold-sheen:hover::after {
+    left: 150%;
+  }
+
+  .section-fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .section-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
